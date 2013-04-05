@@ -13,8 +13,25 @@ define([
 
         template: _.template(SplitItViewTemplate),
 
+        events: {
+            'click #calc': 'calc'
+        },
+
         initialize: function () {
             $(this.el).html(this.template());
+        },
+
+        calc: function () {
+            console.log('calc');
+
+            var total = $('#total').val();
+            // console.log(total);
+
+            var midCount = $('#midCount').val();
+
+            var midPrice = total / midCount;
+
+            $('#midPrice').val(midPrice);
         }
 
     });
