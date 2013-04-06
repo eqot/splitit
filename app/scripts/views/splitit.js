@@ -19,19 +19,44 @@ define([
 
         initialize: function () {
             $(this.el).html(this.template());
+
+            // $('#total').val(50000);
+            // $('#maxPrice').val(10000);
+            // $('#maxCount').val(2);
+            // $('#midCount').val(7);
         },
 
         calc: function (event) {
             event.preventDefault();
 
             var total = $('#total').val();
-            // console.log(total);
+            var balance = total;
 
+            var maxPrice = $('#maxPrice').val();
+            var maxCount = $('#maxCount').val();
+            if (maxPrice && maxCount) {
+                balance -= maxPrice * maxCount;
+            }
+
+            var midPrice = $('#midPrice').val();
             var midCount = $('#midCount').val();
+            if (midPrice && midCount) {
+                balance -= midPrice * midCount;
+            }
 
-            var midPrice = total / midCount;
+            var minPrice = $('#minPrice').val();
+            var minCount = $('#minCount').val();
+            if (minPrice && minCount) {
+                balance -= minPrice * minCount;
+            }
 
-            $('#midPrice').val(midPrice);
+            if (!midPrice) {
+                var price = Math.floor(balance / midCount);
+                $('#midPrice').val(price);
+                balance -= price * midCount;
+            }
+
+            $('#balance').val(balance);
         }
 
     });
