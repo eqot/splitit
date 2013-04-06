@@ -1,47 +1,40 @@
-<form class="form-horizontal">
-    <div class="control-group">
-        <label class="control-label" for="total">Tolal</label>
-        <div class="controls">
-            <input type="text" id="total" placeholder="Total" autofocus />
-        </div>
-    </div>
-
-    <hr>
-
-    <div class="control-group">
-        <label class="control-label" for="maxPrice">Max Price</label>
-        <div class="controls">
-            <input type="text" id="maxPrice" placeholder="Max Price" />
-            <input type="text" id="maxCount" class="input-mini" placeholder="Count" />
-        </div>
-    </div>
-
-    <div class="control-group">
-        <label class="control-label" for="midPrice">Middle Price</label>
-        <div class="controls">
-            <input type="text" id="midPrice" placeholder="Middle Price" />
-            <input type="text" id="midCount" class="input-mini" placeholder="Count" />
-        </div>
-    </div>
-
-    <div class="control-group">
-        <label class="control-label" for="minPrice">Min Price</label>
-        <div class="controls">
-            <input type="text" id="minPrice" placeholder="Min Price" />
-            <input type="text" id="minCount" class="input-mini" placeholder="Count" />
-        </div>
-    </div>
-
-    <div class="control-group">
-        <label class="control-label" for="balance">Balance</label>
-        <div class="controls">
-            <input type="text" id="balance" placeholder="Balance" />
-        </div>
-    </div>
-
-    <div class="control-group">
-        <div class="controls">
-            <button id="calc" type="button" class="btn btn-primary btn-large">Calculate</button>
-        </div>
-    </div>
+<label>Total</label>
+<form class="form-inline">
+  <input id="total" type="text" class="input-medium" placeholder="Total">
+  <button id="calc" class="btn btn-primary">Calculate</button>
 </form>
+
+<hr>
+
+<label>Max Price</label>
+<form class="form-inline">
+  <div class="input-prepend input-append">
+    <button class="btn" type="button">-</button>
+    <input type="text" class="input-mini" placeholder="Price">
+    <button class="btn" type="button">+</button>
+  </div>
+  <input type="text" class="input-mini" placeholder="Count">
+</form>
+
+<label>Middle Price</label>
+<form class="form-inline">
+  <div class="input-prepend input-append">
+    <button class="btn" type="button">-</button>
+    <input id="midPrice" type="text" class="input-mini" placeholder="Price">
+    <button class="btn" type="button">+</button>
+  </div>
+  <input id="midCount" type="text" class="input-mini" placeholder="Count">
+</form>
+
+<label>Min Price</label>
+<form class="form-inline">
+  <div class="input-prepend input-append">
+    <button class="btn" type="button">-</button>
+    <input type="text" class="input-mini" placeholder="Price">
+    <button class="btn" type="button">+</button>
+  </div>
+  <input type="text" class="input-mini" placeholder="Count">
+</form>
+
+<label>Balance</label>
+<input type="text" class="span2" placeholder="Balance">

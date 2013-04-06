@@ -21,8 +21,8 @@ define([
             $(this.el).html(this.template());
         },
 
-        calc: function () {
-            console.log('calc');
+        calc: function (event) {
+            event.preventDefault();
 
             var total = $('#total').val();
             // console.log(total);
