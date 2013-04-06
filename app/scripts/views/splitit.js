@@ -9,12 +9,15 @@ define([
 
     var SplitItView = Backbone.View.extend({
 
+        PRICE_DELTA: 500,
+
         el: $('#view'),
 
         template: _.template(SplitItViewTemplate),
 
         events: {
-            'click #calc': 'calc'
+            'click #calc': 'calc',
+            'click .price': 'priceChange'
         },
 
         initialize: function () {
@@ -57,6 +60,26 @@ define([
             }
 
             $('#balance').val(balance);
+        },
+
+        priceChange: function (event) {
+            event.preventDefault();
+
+            var element = $(event.currentTarget);
+            var target = $('#' + element.attr('for'));
+
+            var price = Math.floor(target.val() / this.PRICE_DELTA);
+            if (element.hasClass('up')) {
+                price++;
+            } else {
+                if (Number(target.val()) === price * this.PRICE_DELTA) {
+                    price--;
+                }
+            }
+
+            if (price >= 0) {
+                target.val(price * this.PRICE_DELTA);
+            }
         }
 
     });
